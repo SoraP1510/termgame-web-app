@@ -26,15 +26,20 @@ export default function HistoryPage() {
     <>
       <TopBar />
       <main className="mx-auto w-full max-w-2xl flex-1 px-4 pb-6">
-        <header className="mt-6">
-          <h1 className="text-xl font-semibold text-primary">ประวัติการเติม</h1>
-          <p className="mt-0.5 text-sm text-zinc-500">
-            รายการเติมเกมและบัตรเติมเกมล่าสุดของคุณ
-          </p>
+        <header className="mt-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-black text-zinc-800 tracking-tight">ประวัติการซื้อ</h1>
+            <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mt-1">Transaction History</p>
+          </div>
+          <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
         </header>
 
         {/* Filter tabs */}
-        <div className="mt-6 flex gap-2 overflow-x-auto">
+        <div className="mt-8 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
           {FILTERS.map((f) => {
             const active = filter === f.key;
             return (
@@ -43,10 +48,10 @@ export default function HistoryPage() {
                 type="button"
                 onClick={() => setFilter(f.key)}
                 className={[
-                  "flex-shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition",
+                  "flex-shrink-0 rounded-2xl px-5 py-2.5 text-xs font-bold transition-all",
                   active
-                    ? "bg-primary text-white shadow"
-                    : "bg-white text-zinc-600 ring-1 ring-black/5 hover:text-primary",
+                    ? "bg-primary text-white shadow-lg shadow-primary/25"
+                    : "bg-white text-zinc-400 ring-1 ring-black/5 hover:text-zinc-600",
                 ].join(" ")}
               >
                 {f.label}
@@ -56,7 +61,7 @@ export default function HistoryPage() {
         </div>
 
         {/* List */}
-        <ul className="mt-6 flex flex-col gap-2.5">
+        <ul className="mt-6 flex flex-col gap-4">
           {items.length === 0 ? (
             <li className="rounded-xl bg-white p-6 text-center text-sm text-zinc-500 ring-1 ring-black/5">
               ไม่มีรายการในหมวดนี้

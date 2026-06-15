@@ -28,3 +28,11 @@
     - Connected `GameCard` and `GameListRow` to the dynamic top-up mockup page.
     - Changed `CardsPage` to use `Banner` instead of `PromotionCarousel` for a cleaner look.
     - Added an "About Us" section with mockup content to the bottom of `HomePage`.
+    - Redesigned `HistoryPage` and `HistoryItem` to match `UI/history.png`:
+        - New card layout for history items with transaction ID, status color, and payment method details.
+        - Refined header with "Transaction History" sub-label and icon.
+        - Improved filter buttons with shadow and updated font weights.
+    - Redesigned `BottomNav` to match `UI/bottom.png`:
+        - Changed from a full-width sticky bar to a floating, pill-shaped bar with `backdrop-blur`.
+        - Added active state highlight with a soft background and animated label visibility.
+        - Improved spacing and transition effects for a modern "app-like" feel.

@@ -15,33 +15,48 @@ export default function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav
-      className="sticky bottom-0 z-40 mt-auto w-full border-t border-black/5 bg-white shadow-[0_-2px_8px_rgba(0,0,0,0.04)]"
-      aria-label="bottom navigation"
-    >
-      <ul className="mx-auto flex max-w-5xl items-stretch justify-around px-2 py-1.5">
-        {ITEMS.map(({ href, label, icon: Icon }) => {
-          const active = pathname === href;
-          return (
-            <li key={href} className="flex-1">
-              <Link
-                href={href}
-                aria-current={active ? "page" : undefined}
-                className={[
-                  "flex flex-col items-center justify-center gap-0.5 rounded-lg py-1.5 text-[11px] font-medium transition",
-                  active
-                    ? "text-primary"
-                    : "text-zinc-500 hover:text-primary",
-                ].join(" ")}
-              >
-                <Icon active={active} />
-                <span>{label}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+    <div className="fixed bottom-5 left-0 right-0 z-50 px-6 pointer-events-none">
+      <nav
+        className="mx-auto max-w-md overflow-hidden rounded-[28px] bg-white/90 shadow-[0_10px_40px_rgba(0,0,0,0.12)] ring-1 ring-black/5 backdrop-blur-xl pointer-events-auto"
+        aria-label="bottom navigation"
+      >
+        <ul className="flex items-stretch justify-around p-1.5">
+          {ITEMS.map(({ href, label, icon: Icon }) => {
+            const active = pathname === href;
+            return (
+              <li key={href} className="flex-1">
+                <Link
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={[
+                    "relative flex flex-col items-center justify-center gap-1 py-2 transition-all duration-300",
+                    active
+                      ? "text-primary"
+                      : "text-zinc-400 hover:text-zinc-600",
+                  ].join(" ")}
+                >
+                  {/* Active Background Pill */}
+                  {active && (
+                    <div className="absolute inset-x-1.5 inset-y-1 rounded-[20px] bg-primary/10 -z-10" />
+                  )}
+                  
+                  <div className={["transition-all duration-300", active ? "scale-110 -translate-y-0.5" : ""].join(" ")}>
+                    <Icon active={active} />
+                  </div>
+                  
+                  <span className={[
+                    "text-[9px] font-black uppercase tracking-[0.1em] transition-all duration-300",
+                    active ? "text-primary opacity-100" : "text-zinc-400 opacity-80"
+                  ].join(" ")}>
+                    {label}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
   );
 }
 
