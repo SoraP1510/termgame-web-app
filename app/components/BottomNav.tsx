@@ -64,6 +64,7 @@ function HomeIcon({ active }: { active: boolean }) {
   );
 }
 
+// เปลี่ยนเป็นรูป Joystick เรียบร้อย
 function TopupIcon({ active }: { active: boolean }) {
   return (
     <svg
@@ -77,8 +78,17 @@ function TopupIcon({ active }: { active: boolean }) {
       strokeLinejoin="round"
       aria-hidden
     >
-      <path d="M12 3v18" />
-      <path d="M17 7H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6" />
+      {/* ตัวจอยสติ๊กหลัก */}
+      <rect x="2" y="12" width="20" height="8" rx="2" />
+      {/* ปุ่มกดทิศทาง D-pad ฝั่งซ้าย */}
+      <path d="M6 14v4" />
+      <path d="M4 16h4" />
+      {/* แกนโยน/อนาล็อกตรงกลางด้านบน */}
+      <path d="M12 12V6" />
+      <circle cx="12" cy="5" r="2" fill={active ? "#cd1717" : "currentColor"} />
+      {/* ปุ่มกด Action ฝั่งขวา */}
+      <circle cx="16" cy="16" r="1" fill={active ? "#cd1717" : "currentColor"} />
+      <circle cx="19" cy="15" r="1" fill={active ? "#cd1717" : "currentColor"} />
     </svg>
   );
 }

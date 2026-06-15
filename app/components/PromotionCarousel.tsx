@@ -31,7 +31,7 @@ export default function PromotionCarousel() {
         {PROMOTIONS.map((p) => (
           <div
             key={p.id}
-            className="relative aspect-[16/9] w-full flex-shrink-0"
+            className="relative aspect-[16/16] w-full flex-shrink-0"
           >
             <Image
               src={p.image}

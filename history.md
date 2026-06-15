@@ -19,3 +19,12 @@
 - Verified `PromotionCarousel` has auto-sliding functionality for promotion1-3.
 - Verified `HistoryPage` and `HistoryItem` components are consistent with the theme.
 - Updated project styles to match the requested color palette (#ff8c8c, #cd1717, #f1f1f1).
+- Implemented game/card mockup detail page at `app/topup/[id]/page.tsx` with package selection and payment methods.
+- Refined UI for a more minimal theme across all pages:
+    - Adjusted `PromotionCarousel` height to `aspect-[21/9]` for a better fit.
+    - Added "โปรโมชันแนะนำ" headings to Home, Topup, and Cards pages.
+    - Increased vertical spacing (whitespace) between sections to `mt-8` and `mt-10` for better readability.
+    - Standardized page headers and list spacing across Home, Topup, Cards, and History pages.
+    - Connected `GameCard` and `GameListRow` to the dynamic top-up mockup page.
+    - Changed `CardsPage` to use `Banner` instead of `PromotionCarousel` for a cleaner look.
+    - Added an "About Us" section with mockup content to the bottom of `HomePage`.

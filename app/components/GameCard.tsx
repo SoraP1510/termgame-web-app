@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Game } from "@/app/lib/mockData";
 
 type Props = {
@@ -7,8 +8,8 @@ type Props = {
 
 export default function GameCard({ game }: Props) {
   return (
-    <a
-      href="#"
+    <Link
+      href={`/topup/${game.id}`}
       className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-md"
     >
       <div className="relative aspect-square w-full bg-zinc-100">
@@ -32,6 +33,6 @@ export default function GameCard({ game }: Props) {
           <span className="font-semibold text-primary">฿{game.priceStart}</span>
         </p>
       </div>
-    </a>
+    </Link>
   );
 }

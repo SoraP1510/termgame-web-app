@@ -1,5 +1,12 @@
 // Mock data สำหรับเกม, บัตรเติมเกม, และประวัติ
 
+export type Package = {
+  id: string;
+  name: string;
+  price: number;
+  originalPrice?: number;
+};
+
 export type Game = {
   id: string;
   name: string;
@@ -7,28 +14,63 @@ export type Game = {
   image: string; // path ใน public/images/
   priceStart: number; // ราคาเริ่มต้น (บาท)
   tag?: string; // เช่น "HOT", "NEW"
+  packages?: Package[];
 };
 
 // รายชื่อเกม (ใช้ซ้ำรูป promotion เป็น placeholder เพราะยังไม่มี assets ของเกมจริง)
 export const GAMES: Game[] = [
-  { id: "free-fire", name: "Free Fire", category: "topup", image: "/images/promotion1.jpg", priceStart: 35, tag: "HOT" },
-  { id: "roblox", name: "Roblox", category: "topup", image: "/images/promotion2.jpg", priceStart: 50 },
-  { id: "mlbb", name: "Mobile Legends", category: "topup", image: "/images/promotion3.jpg", priceStart: 45, tag: "HOT" },
-  { id: "genshin", name: "Genshin Impact", category: "topup", image: "/images/promotion1.jpg", priceStart: 60 },
-  { id: "pubg", name: "PUBG Mobile", category: "topup", image: "/images/promotion2.jpg", priceStart: 35 },
-  { id: "valorant", name: "Valorant", category: "topup", image: "/images/promotion3.jpg", priceStart: 100 },
-  { id: "honor-kings", name: "Honor of Kings", category: "topup", image: "/images/promotion1.jpg", priceStart: 35, tag: "NEW" },
-  { id: "ragnarok", name: "Ragnarok M", category: "topup", image: "/images/promotion2.jpg", priceStart: 50 },
+  { 
+    id: "free-fire", 
+    name: "Free Fire", 
+    category: "topup", 
+    image: "https://placehold.co/600x400/png", 
+    priceStart: 35, 
+    tag: "HOT",
+    packages: [
+      { id: "ff-1", name: "20 Diamonds", price: 35 },
+      { id: "ff-2", name: "50 Diamonds", price: 85 },
+      { id: "ff-3", name: "100 Diamonds", price: 170, originalPrice: 190 },
+      { id: "ff-4", name: "200 Diamonds", price: 340 },
+    ]
+  },
+  { 
+    id: "roblox", 
+    name: "Roblox", 
+    category: "topup", 
+    image: "https://placehold.co/600x400/png", 
+    priceStart: 50,
+    packages: [
+      { id: "rb-1", name: "80 Robux", price: 50 },
+      { id: "rb-2", name: "400 Robux", price: 250 },
+      { id: "rb-3", name: "800 Robux", price: 500 },
+    ]
+  },
+  { id: "mlbb", name: "Mobile Legends", category: "topup", image: "https://placehold.co/600x400/png", priceStart: 45, tag: "HOT" },
+  { id: "genshin", name: "Genshin Impact", category: "topup", image: "https://placehold.co/600x400/png", priceStart: 60 },
+  { id: "pubg", name: "PUBG Mobile", category: "topup", image: "https://placehold.co/600x400/png", priceStart: 35 },
+  { id: "valorant", name: "Valorant", category: "topup", image: "https://placehold.co/600x400/png", priceStart: 100 },
+  { id: "honor-kings", name: "Honor of Kings", category: "topup", image: "https://placehold.co/600x400/png", priceStart: 35, tag: "NEW" },
+  { id: "ragnarok", name: "Ragnarok M", category: "topup", image: "https://placehold.co/600x400/png", priceStart: 50 },
 ];
 
 // บัตรเติมเกม
 export const CARDS: Game[] = [
-  { id: "roblox-card", name: "Roblox Gift Card", category: "card", image: "/images/promotion1.jpg", priceStart: 100 },
-  { id: "steam-card", name: "Steam Wallet", category: "card", image: "/images/promotion2.jpg", priceStart: 100, tag: "HOT" },
-  { id: "razer-card", name: "Razer Gold", category: "card", image: "/images/promotion3.jpg", priceStart: 50 },
-  { id: "google-play", name: "Google Play", category: "card", image: "/images/promotion1.jpg", priceStart: 100 },
-  { id: "app-store", name: "App Store & iTunes", category: "card", image: "/images/promotion2.jpg", priceStart: 100 },
-  { id: "netflix-card", name: "Netflix Gift Card", category: "card", image: "/images/promotion3.jpg", priceStart: 250, tag: "NEW" },
+  { 
+    id: "roblox-card", 
+    name: "Roblox Gift Card", 
+    category: "card", 
+    image: "https://placehold.co/600x400/png", 
+    priceStart: 100,
+    packages: [
+      { id: "rbc-1", name: "$10 Gift Card", price: 350 },
+      { id: "rbc-2", name: "$25 Gift Card", price: 875 },
+    ]
+  },
+  { id: "steam-card", name: "Steam Wallet", category: "card", image: "https://placehold.co/600x400/png", priceStart: 100, tag: "HOT" },
+  { id: "razer-card", name: "Razer Gold", category: "card", image: "https://placehold.co/600x400/png", priceStart: 50 },
+  { id: "google-play", name: "Google Play", category: "card", image: "https://placehold.co/600x400/png", priceStart: 100 },
+  { id: "app-store", name: "App Store & iTunes", category: "card", image: "https://placehold.co/600x400/png", priceStart: 100 },
+  { id: "netflix-card", name: "Netflix Gift Card", category: "card", image: "https://placehold.co/600x400/png", priceStart: 250, tag: "NEW" },
 ];
 
 // รายการโปรโมชัน (สำหรับ carousel)

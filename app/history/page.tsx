@@ -26,7 +26,7 @@ export default function HistoryPage() {
     <>
       <TopBar />
       <main className="mx-auto w-full max-w-2xl flex-1 px-4 pb-6">
-        <header className="mt-3">
+        <header className="mt-6">
           <h1 className="text-xl font-semibold text-primary">ประวัติการเติม</h1>
           <p className="mt-0.5 text-sm text-zinc-500">
             รายการเติมเกมและบัตรเติมเกมล่าสุดของคุณ
@@ -34,7 +34,7 @@ export default function HistoryPage() {
         </header>
 
         {/* Filter tabs */}
-        <div className="mt-4 flex gap-2 overflow-x-auto">
+        <div className="mt-6 flex gap-2 overflow-x-auto">
           {FILTERS.map((f) => {
             const active = filter === f.key;
             return (
@@ -56,7 +56,7 @@ export default function HistoryPage() {
         </div>
 
         {/* List */}
-        <ul className="mt-4 flex flex-col gap-2">
+        <ul className="mt-6 flex flex-col gap-2.5">
           {items.length === 0 ? (
             <li className="rounded-xl bg-white p-6 text-center text-sm text-zinc-500 ring-1 ring-black/5">
               ไม่มีรายการในหมวดนี้

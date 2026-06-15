@@ -1,37 +1,47 @@
 import Link from "next/link";
 import Image from "next/image";
 
-// แถบด้านบนสี #ff8c8c พร้อมโลโก้ + ปุ่มเมนู (หน้าหลัก/ประวัติ/เติมเกม/บัตรเติมเกม)
 export default function TopBar() {
   return (
-    <header className="w-full bg-bar shadow-sm">
+    // เปลี่ยนพื้นหลังเป็น bg-[#F14B4B] ตรงนี้ได้เลยครับ
+    <header className="w-full bg-[#F14B4B] shadow-sm sticky top-0 z-50">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-2.5">
-        <Link href="/" className="flex items-center gap-2">
+        
+        {/* ฝั่งซ้าย: โลโก้ร้าน */}
+        <Link href="/" className="flex items-center gap-2 flex-shrink-0">
           <Image
             src="/images/logo.jpg"
             alt="TermGame Logo"
             width={36}
             height={36}
-            className="h-9 w-9 rounded-full object-cover ring-2 ring-white/60"
+            className="h-9 w-9 rounded-full object-cover ring-2 ring-black/10"
           />
-          <span className="text-base font-semibold text-white drop-shadow-sm">
-            TermGame
+          {/* เปลี่ยนสีตัวอักษรเป็นสีดำ text-zinc-900 */}
+          <span className="text-base font-bold text-zinc-900 hidden sm:block">
+            InBlack Gaming
           </span>
         </Link>
-        <nav className="hidden gap-1 sm:flex">
-          <TopLink href="/">หน้าหลัก</TopLink>
-          <TopLink href="/topup">เติมเกม</TopLink>
-          <TopLink href="/cards">บัตรเติมเกม</TopLink>
-          <TopLink href="/history">ประวัติ</TopLink>
-        </nav>
-        <div className="flex items-center gap-2">
+
+        {/* ตรงกลาง: ข้อความ 2 บรรทัด ตัวอักษรสีดำ */}
+        <div className="flex-1 text-center px-1">
+          <p className="text-[15px] font-bold text-zinc-900 leading-tight">
+            Inblackm Termgame - ถูกทะลุมิติ
+          </p>
+          <p className="text-[13px] font-semibold text-zinc-800 leading-tight">
+            รับเติมเกม บริการตลอด 24 ชม.
+          </p>
+        </div>
+
+        {/* ฝั่งขวา: ปุ่มเข้าสู่ระบบ */}
+        <div className="flex items-center gap-2 flex-shrink-0">
           <Link
             href="/login"
-            className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-primary hover:bg-white"
+            className="rounded-full bg-zinc-900 px-3 py-1 text-xs font-medium text-white hover:bg-zinc-800 transition-colors"
           >
             เข้าสู่ระบบ
           </Link>
         </div>
+
       </div>
     </header>
   );
